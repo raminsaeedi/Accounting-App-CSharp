@@ -54,7 +54,7 @@
             this.groupBox1.Controls.Add(this.pcCustomer);
             this.groupBox1.Location = new System.Drawing.Point(2, 53);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(250, 391);
+            this.groupBox1.Size = new System.Drawing.Size(250, 488);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Image";
@@ -165,9 +165,9 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(311, 449);
+            this.btnSave.Location = new System.Drawing.Point(277, 488);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(119, 34);
+            this.btnSave.Size = new System.Drawing.Size(171, 53);
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -184,7 +184,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(745, 509);
+            this.ClientSize = new System.Drawing.Size(782, 553);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnSelectPhoto);
             this.Controls.Add(this.groupBox2);

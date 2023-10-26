@@ -44,5 +44,11 @@ namespace Accounting.App
             frmReportRecieve.ShowDialog();
 
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            labelDate.Text = DateTime.Now.ToString();
+            LabelTime.Text = DateTime.Now.ToShortDateString();
+        }
     }
 }

@@ -58,7 +58,7 @@
             this.txtFilter});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1010, 67);
+            this.toolStrip1.Size = new System.Drawing.Size(782, 67);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -148,7 +148,7 @@
             this.dgCustomers.ReadOnly = true;
             this.dgCustomers.RowHeadersWidth = 51;
             this.dgCustomers.RowTemplate.Height = 24;
-            this.dgCustomers.Size = new System.Drawing.Size(1010, 483);
+            this.dgCustomers.Size = new System.Drawing.Size(782, 486);
             this.dgCustomers.TabIndex = 1;
             this.dgCustomers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -189,7 +189,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1010, 550);
+            this.ClientSize = new System.Drawing.Size(782, 553);
             this.Controls.Add(this.dgCustomers);
             this.Controls.Add(this.toolStrip1);
             this.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

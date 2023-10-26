@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             this.FilterGroupbox = new System.Windows.Forms.GroupBox();
+            this.btnFilter = new System.Windows.Forms.Button();
+            this.txtToDate = new System.Windows.Forms.MaskedTextBox();
+            this.UntilDateLabel = new System.Windows.Forms.Label();
             this.txtFromDate = new System.Windows.Forms.MaskedTextBox();
             this.FromDateLabel = new System.Windows.Forms.Label();
             this.cbCustomer = new System.Windows.Forms.ComboBox();
             this.Customerlabel = new System.Windows.Forms.Label();
-            this.txtToDate = new System.Windows.Forms.MaskedTextBox();
-            this.UntilDateLabel = new System.Windows.Forms.Label();
-            this.btnFilter = new System.Windows.Forms.Button();
             this.dgReport = new System.Windows.Forms.DataGridView();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnEdit = new System.Windows.Forms.ToolStripButton();
-            this.btnDelete = new System.Windows.Forms.ToolStripButton();
-            this.btnRefresh = new System.Windows.Forms.ToolStripButton();
-            this.btnPrint = new System.Windows.Forms.ToolStripButton();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnEdit = new System.Windows.Forms.ToolStripButton();
+            this.btnDelete = new System.Windows.Forms.ToolStripButton();
+            this.btnRefresh = new System.Windows.Forms.ToolStripButton();
+            this.btnPrint = new System.Windows.Forms.ToolStripButton();
             this.FilterGroupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgReport)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -68,6 +68,36 @@
             this.FilterGroupbox.TabIndex = 1;
             this.FilterGroupbox.TabStop = false;
             this.FilterGroupbox.Text = "Search";
+            // 
+            // btnFilter
+            // 
+            this.btnFilter.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFilter.Location = new System.Drawing.Point(663, 25);
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.Size = new System.Drawing.Size(90, 28);
+            this.btnFilter.TabIndex = 6;
+            this.btnFilter.Text = "Apply";
+            this.btnFilter.UseVisualStyleBackColor = true;
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
+            // 
+            // txtToDate
+            // 
+            this.txtToDate.Location = new System.Drawing.Point(532, 25);
+            this.txtToDate.Mask = "00/00/0000";
+            this.txtToDate.Name = "txtToDate";
+            this.txtToDate.Size = new System.Drawing.Size(100, 25);
+            this.txtToDate.TabIndex = 5;
+            this.txtToDate.ValidatingType = typeof(System.DateTime);
+            // 
+            // UntilDateLabel
+            // 
+            this.UntilDateLabel.AutoSize = true;
+            this.UntilDateLabel.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UntilDateLabel.Location = new System.Drawing.Point(477, 30);
+            this.UntilDateLabel.Name = "UntilDateLabel";
+            this.UntilDateLabel.Size = new System.Drawing.Size(49, 18);
+            this.UntilDateLabel.TabIndex = 4;
+            this.UntilDateLabel.Text = "Until :";
             // 
             // txtFromDate
             // 
@@ -106,36 +136,6 @@
             this.Customerlabel.TabIndex = 0;
             this.Customerlabel.Text = "Customer :";
             // 
-            // txtToDate
-            // 
-            this.txtToDate.Location = new System.Drawing.Point(532, 25);
-            this.txtToDate.Mask = "00/00/0000";
-            this.txtToDate.Name = "txtToDate";
-            this.txtToDate.Size = new System.Drawing.Size(100, 25);
-            this.txtToDate.TabIndex = 5;
-            this.txtToDate.ValidatingType = typeof(System.DateTime);
-            // 
-            // UntilDateLabel
-            // 
-            this.UntilDateLabel.AutoSize = true;
-            this.UntilDateLabel.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UntilDateLabel.Location = new System.Drawing.Point(477, 30);
-            this.UntilDateLabel.Name = "UntilDateLabel";
-            this.UntilDateLabel.Size = new System.Drawing.Size(49, 18);
-            this.UntilDateLabel.TabIndex = 4;
-            this.UntilDateLabel.Text = "Until :";
-            // 
-            // btnFilter
-            // 
-            this.btnFilter.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFilter.Location = new System.Drawing.Point(663, 25);
-            this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(90, 28);
-            this.btnFilter.TabIndex = 6;
-            this.btnFilter.Text = "Apply";
-            this.btnFilter.UseVisualStyleBackColor = true;
-            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
-            // 
             // dgReport
             // 
             this.dgReport.AllowUserToAddRows = false;
@@ -153,8 +153,49 @@
             this.dgReport.ReadOnly = true;
             this.dgReport.RowHeadersWidth = 51;
             this.dgReport.RowTemplate.Height = 24;
-            this.dgReport.Size = new System.Drawing.Size(782, 333);
+            this.dgReport.Size = new System.Drawing.Size(782, 431);
             this.dgReport.TabIndex = 2;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "ID";
+            this.Column1.HeaderText = "Column1";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "CustomerID";
+            this.Column2.HeaderText = "Person";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "Amount";
+            this.Column3.HeaderText = "Cost";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "DateTitle";
+            this.Column4.HeaderText = "Date";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "Description";
+            this.Column5.HeaderText = "Description";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // toolStrip1
             // 
@@ -217,52 +258,11 @@
             this.btnPrint.Text = "Print";
             this.btnPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "ID";
-            this.Column1.HeaderText = "Column1";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "CustomerID";
-            this.Column2.HeaderText = "Person";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "Amount";
-            this.Column3.HeaderText = "Cost";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "DateTitle";
-            this.Column4.HeaderText = "Date";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "Description";
-            this.Column5.HeaderText = "Description";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
             // frmReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(782, 453);
+            this.ClientSize = new System.Drawing.Size(782, 553);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dgReport);
             this.Controls.Add(this.FilterGroupbox);

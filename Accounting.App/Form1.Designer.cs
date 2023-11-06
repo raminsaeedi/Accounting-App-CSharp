@@ -28,21 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.buttonstrip = new System.Windows.Forms.StatusStrip();
+            this.labelTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.labelDate = new System.Windows.Forms.ToolStripStatusLabel();
-            this.LabelTime = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timerTime = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCustomer = new System.Windows.Forms.ToolStripButton();
             this.btnNewAccounting = new System.Windows.Forms.ToolStripButton();
             this.btnReportRecieve = new System.Windows.Forms.ToolStripButton();
             this.btnReportPay = new System.Windows.Forms.ToolStripButton();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.Setting = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnEditLogin = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip2.SuspendLayout();
             this.buttonstrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip2
@@ -58,9 +64,9 @@
             this.btnReportRecieve,
             this.btnReportPay,
             this.toolStripSeparator2});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip2.Location = new System.Drawing.Point(0, 28);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(145, 458);
+            this.toolStrip2.Size = new System.Drawing.Size(145, 430);
             this.toolStrip2.TabIndex = 1;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -93,31 +99,37 @@
             this.buttonstrip.Font = new System.Drawing.Font("Sylfaen", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonstrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.buttonstrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.labelDate,
-            this.LabelTime});
+            this.labelTime,
+            this.labelDate});
             this.buttonstrip.Location = new System.Drawing.Point(0, 412);
             this.buttonstrip.Name = "buttonstrip";
             this.buttonstrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.buttonstrip.Size = new System.Drawing.Size(424, 46);
+            this.buttonstrip.Size = new System.Drawing.Size(429, 46);
             this.buttonstrip.TabIndex = 2;
+            // 
+            // labelTime
+            // 
+            this.labelTime.Name = "labelTime";
+            this.labelTime.Size = new System.Drawing.Size(98, 40);
+            this.labelTime.Text = "label Time";
             // 
             // labelDate
             // 
             this.labelDate.Name = "labelDate";
-            this.labelDate.Size = new System.Drawing.Size(187, 40);
-            this.labelDate.Text = "toolStripStatusLabel1";
+            this.labelDate.Size = new System.Drawing.Size(48, 40);
+            this.labelDate.Text = "Date";
             // 
-            // LabelTime
+            // timerTime
             // 
-            this.LabelTime.Name = "LabelTime";
-            this.LabelTime.Size = new System.Drawing.Size(187, 40);
-            this.LabelTime.Text = "toolStripStatusLabel2";
+            this.timerTime.Enabled = true;
+            this.timerTime.Interval = 1000;
+            this.timerTime.Tick += new System.EventHandler(this.timerTime_Tick);
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::Accounting.App.Properties.Resources.Background_1;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(148, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(148, 27);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(276, 294);
             this.pictureBox1.TabIndex = 3;
@@ -167,27 +179,57 @@
             this.btnReportPay.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnReportPay.Click += new System.EventHandler(this.btnReportPay_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Setting});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(429, 28);
+            this.menuStrip1.TabIndex = 4;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // Setting
+            // 
+            this.Setting.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnEditLogin});
+            this.Setting.Name = "Setting";
+            this.Setting.Size = new System.Drawing.Size(70, 24);
+            this.Setting.Text = "Setting";
+            // 
+            // btnEditLogin
+            // 
+            this.btnEditLogin.Name = "btnEditLogin";
+            this.btnEditLogin.Size = new System.Drawing.Size(224, 26);
+            this.btnEditLogin.Text = "Login Settings";
+            this.btnEditLogin.Click += new System.EventHandler(this.btnEditLogin_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(424, 458);
+            this.ClientSize = new System.Drawing.Size(429, 458);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonstrip);
             this.Controls.Add(this.toolStrip2);
+            this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Accounting App";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             this.buttonstrip.ResumeLayout(false);
             this.buttonstrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,9 +245,13 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.StatusStrip buttonstrip;
-        private System.Windows.Forms.ToolStripStatusLabel LabelTime;
         private System.Windows.Forms.ToolStripStatusLabel labelDate;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Timer timerTime;
+        private System.Windows.Forms.ToolStripStatusLabel labelTime;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem Setting;
+        private System.Windows.Forms.ToolStripMenuItem btnEditLogin;
     }
 }
 

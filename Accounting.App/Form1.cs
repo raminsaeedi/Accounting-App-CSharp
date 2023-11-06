@@ -47,8 +47,31 @@ namespace Accounting.App
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            labelDate.Text = DateTime.Now.ToString();
-            LabelTime.Text = DateTime.Now.ToShortDateString();
+            labelTime.Text =DateTime.Now.ToString("HH:mm:ss");
+            labelDate.Text = DateTime.Now.ToLongDateString();
+            this.Hide();
+            FrmLogin frmLogin = new FrmLogin();
+            if(frmLogin.ShowDialog() == DialogResult.OK)
+            {
+                this.Show();
+            }
+            else
+            {
+                Application.Exit();
+            }
+        }
+
+        private void timerTime_Tick(object sender, EventArgs e)
+        {
+            labelTime.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
+
+        private void btnEditLogin_Click(object sender, EventArgs e)
+        {
+            FrmLogin frmLogin = new FrmLogin();
+            frmLogin.IsEdit = true;
+            frmLogin.ShowDialog();
+
         }
     }
 }
